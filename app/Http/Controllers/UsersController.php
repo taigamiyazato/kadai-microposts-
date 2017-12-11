@@ -72,10 +72,9 @@ class UsersController extends Controller
         
         $data = [
             'user' => $user,
-            'users' => $favoritings,
+            'favoritings' => $favoritings,
         ];
-        
-        $data += $this->counts($user);
+        $data['count_favoritings'] = $favoritings->total()
         
         return view('users.favoritings', $data);
     }

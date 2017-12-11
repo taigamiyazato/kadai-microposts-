@@ -101,9 +101,9 @@ class User extends Model implements AuthenticatableContract,
         $follow_user_ids = $this->followings()->lists('users.id')->toArray();
         $follow_user_ids[] = $this->id;
         return Micropost::whereIn('user_id', $follow_user_ids);
-        $favorite_user_ids = $this->favoritings()->lists('users.id')->toArray();
-        $favorite_user_ids[] = $this->id;
-        return Micropost::whereIn('user_id', $favorite_user_ids);
+        $favorite_micropost_ids = $this->favoritings()->lists('microposts.id')->toArray();
+        $favorite_micropost_ids[] = $this->id;
+        return Micropost::whereIn('micropost_id', $favorite_micropost_ids);
     }
 
      public function favoritings()
