@@ -76,7 +76,7 @@ class UsersController extends Controller
         ];
         $data['count_favoritings'] = $favoritings->total()
         
-        return view('users.favoritings', $data);
+        return view('users.show', $data);
     }
 
 }

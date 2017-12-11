@@ -37,7 +37,7 @@ class UserFavoriteController extends Controller
      */
     public function store(Request $request)
     {
-        \Auth::user()->favorite($id);
+        \Auth::user()->micropost($id);
         return redirect()->back();
     }
 
